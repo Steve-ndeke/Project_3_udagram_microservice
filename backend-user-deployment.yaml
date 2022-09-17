@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: udagram-api-user
+  name: backend-user
   labels:
-    app: udagram-api-user
+    app: backend-user
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: udagram-api-user
+      app: backend-user
   template:
     metadata:
       labels:
-        app: udagram-api-user
+        app: backend-user
     spec:
       containers:
       - name: backend-user
@@ -21,7 +21,7 @@ spec:
         ports:
           - containerPort: 8080
         volumeMounts:
-          - name: aws-secret-volume
+          - name: aws-volume
             mountPath: /root/.aws
         envFrom:
           - configMapRef:
@@ -30,7 +30,7 @@ spec:
               name: udagram-secret
       restartPolicy: Always
       volumes:
-        - name: aws-secret-volume
+        - name: aws-volume
           secret:
             secretName: aws-secret
             items:
