@@ -1,0 +1,12 @@
+apiVersion: v1 
+kind: ConfigMap 
+metadata:
+  name: udagram-configmap 
+data:
+  # Configuration values can be set as key-value properties
+  AWS_BUCKET: udagram-stv
+  AWS_REGION: us-east-1
+  AWS_PROFILE: udacity-alx
+  POSTGRES_HOST: database-udagram-stv.cpwt63se4vmf.us-east-1.rds.amazonaws.com
+  JWT_SECRET: secret
+  URL: http://localhost:8100
